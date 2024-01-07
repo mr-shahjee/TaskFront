@@ -1,0 +1,92 @@
+<mat-card>
+	<mat-card-content>
+		<form [formGroup]="jobForm" (ngSubmit)="onSubmit()">
+			<div class="container mt-3">
+				<div class="row"> 
+					<div class="col-md-6">
+						<mat-form-field class="example-full-width" appearance="outline">
+							<mat-label> Job Title</mat-label>
+							<input formControlName="jobTitle" matInput >
+						</mat-form-field>
+					</div>
+					<div class="col-md-6">
+						<mat-form-field appearance="outline">
+							<mat-label>Expiry</mat-label>
+							<input formControlName="expiry" matInput [matDatepicker]="picker">
+							<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+							<mat-datepicker #picker></mat-datepicker>
+						</mat-form-field>
+					</div>
+					<div class="col-md-6">
+						<mat-form-field class="example-full-width" appearance="outline">
+							<mat-label>Job Duration</mat-label>
+							<input formControlName="jobDuration" matInput >
+						</mat-form-field>
+					</div>
+
+				</div>
+			</div>
+
+ 
+<div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title mb-4">Custom Sections</h4> 
+          
+              <div *ngFor="let data1 of formData().controls; let i=index;">
+                <div class="row" >
+                  <div class="mb-3 col-lg-2">
+                    <label for="name">Name</label>
+                    <input type="text" formControlName="name" matInput >
+                  </div>
+
+                  <div class="mb-3 col-lg-2">
+                    <label for="email">Email</label>
+                    <input type="email" formControlName="email" matInput>
+                  </div> 
+
+                </div>
+              </div>
+              <input type="button" class="btn btn-success mt-3 mt-lg-0" value="Add" (click)="addField()">
+           
+        </div>
+      </div>
+    </div>
+  </div>
+<hr>
+			<div class="row mb-4">
+				<div class="col-md-1">
+					<button mat-raised-button color="default">Cancel</button>
+				</div>
+				<div class="col-md-1 ml-4">
+					<button mat-raised-button color="primary" id="btn2">Submit</button>
+
+				</div>
+				<div class="col-md-7">
+					<p></p>
+				</div>
+			</div>
+
+
+		</form>
+
+<hr>
+ 
+		<div class="container">
+			<div class="row">
+				<kendo-grid  #myGrid [kendoGridBinding]="gridData" [pageSize]="10" [pageable]="true" [sortable]="true"
+					[filterable]="true" [groupable]="true" [height]="420" >
+					<kendo-grid-column field="jobTitle" title="Job Title" [width]="100"></kendo-grid-column>
+					<kendo-grid-column field="expiry" title="Expiry" [width]="140"></kendo-grid-column>
+					<kendo-grid-column field="jobDuration" title="Job Duration" [width]="120"></kendo-grid-column>
+					 
+
+
+				</kendo-grid>
+
+			</div>
+		</div> 
+	</mat-card-content>
+</mat-card>
+

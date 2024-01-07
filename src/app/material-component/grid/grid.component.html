@@ -1,0 +1,11 @@
+
+    <kendo-grid  #myGrid [kendoGridBinding]="gridData" [pageSize]="10" [pageable]="true" [sortable]="true"
+      [filterable]="true" [groupable]="true" [height]="420"  (dblclick)="dblClickEvent(myGrid, $event)" >
+      <kendo-grid-column field="gad7Id" title="Gad7 Id" [width]="100"></kendo-grid-column>
+      <kendo-grid-column field="gad7Date" title="Gad7 Date" [width]="140"></kendo-grid-column>
+      <kendo-grid-column field="treatmentStage" title="Treatment Stage" [width]="120"></kendo-grid-column>
+      <kendo-grid-column field="score" title="Score" [width]="100"></kendo-grid-column>
+
+
+    </kendo-grid>
+
