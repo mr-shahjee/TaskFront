@@ -21,7 +21,7 @@ export class AuthService {
     return this.http.post(this.jobFormUrl,{JobTitle: job.jobTitle,
       Expiry: job.expiry,
       JobDuration: job.jobDuration,
-      JobDescriptions: job.jobDescriptions
+      JobDescription: job.jobDescription
       });
   }
 
