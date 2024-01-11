@@ -28,7 +28,7 @@
 			</div>
 
  
-<div class="row">
+ <div class="row">
     <div class="col-12">
       <div class="card">
         <div class="card-body">
@@ -36,15 +36,19 @@
           
               <div *ngFor="let data1 of formData().controls; let i=index;">
                 <div class="row" >
-                  <div class="mb-3 col-lg-2">
-                    <label for="name">Name</label>
-                    <input type="text" formControlName="name" matInput >
+                  <div class="mb-3 col-lg-2"> 
+                    <!-- <label for="name">Name</label> -->
+                    <!-- <input type="text" formControlName="name" matInput > -->
+					 <label for="name{{i}}">Name</label>
+					<input type="text" [formControl]="data1.get('name')" matInput>
                   </div>
 
-                  <div class="mb-3 col-lg-2">
-                    <label for="email">Email</label>
-                    <input type="email" formControlName="email" matInput>
-                  </div> 
+                  <div class="mb-3 col-lg-2"> 
+                    <!-- <label for="email">Email</label> -->
+                    <!-- <input type="email" formControlName="email" matInput> -->
+					 <label for="email{{i}}">Email</label>
+					<input type="email" [formControl]="data1.get('email')" matInput>  
+				</div> 
 
                 </div>
               </div>
@@ -53,7 +57,71 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> 
+
+<!-- Custom Field code Start-->
+
+  <!-- <div class="row">
+	<div class="col-12">
+	  <div class="card">
+		<div class="card-body">
+		  <h4 class="card-title mb-4">Custom Sections</h4>
+  
+		  <div *ngFor="let data1 of formData().controls; let i=index;">
+			<div class="row">
+			  <div class="mb-3 col-lg-2">
+				<label for="name{{i}}">Name</label>
+				<input type="text" [formControl]="data1.get('name')" matInput>
+			  </div>
+  
+			  <div class="mb-3 col-lg-2">
+				<label for="email{{i}}">Email</label>
+				<input type="email" [formControl]="data1.get('email')" matInput>
+			  </div>
+			</div>
+		  </div> -->
+  
+		  <!-- Add custom fields -->
+		  <!-- <div *ngFor="let customField of customFields; let i=index">
+			<div class="row">
+			  <div class="mb-3 col-lg-2">
+				<label for="customField{{i}}">{{ customField.label }}</label>
+				<input [type]="customField.type" [formControl]="data1.get(customField.name)" matInput>
+			  </div>
+			</div>
+		  </div> -->
+  
+		  <!-- Add button to create custom fields -->
+		  <!-- <input type="button" class="btn btn-success mt-3 mt-lg-0" value="Add" (click)="addCustomField()">
+  
+		</div>
+	  </div>
+	</div>
+  </div> -->
+  
+
+<!-- Custom Field code End-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <hr>
 			<div class="row mb-4">
 				<div class="col-md-1">

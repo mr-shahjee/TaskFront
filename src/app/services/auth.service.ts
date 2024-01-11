@@ -16,13 +16,25 @@ export class AuthService {
   jwtHelperService = new JwtHelperService();
  
 
+  // postJobForm(job: any) { 
+  //   debugger
+  //   return this.http.post(this.jobFormUrl,{JobTitle: job.jobTitle,
+  //     Expiry: job.expiry,
+  //     JobDuration: job.jobDuration,
+  //     JobDescription: job.jobDescription
+  //     });
+  // }
+
   postJobForm(job: any) { 
-    debugger
-    return this.http.post(this.jobFormUrl,{JobTitle: job.jobTitle,
+    debugger;
+    const formattedJob = {
+      JobTitle: job.jobTitle,
       Expiry: job.expiry,
       JobDuration: job.jobDuration,
       JobDescription: job.jobDescription
-      });
+    };
+  
+    return this.http.post(this.jobFormUrl, formattedJob);
   }
 
   getJobForm() { 
